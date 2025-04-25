@@ -11,6 +11,7 @@ import {
 import { UserService } from './user.services';
 import { CreateUserDTO } from './domain/dto/createUser.dto';
 import { UpdateUserDTO } from './domain/dto/updateUser.dto';
+import { ParamId } from 'src/shared/decorators/paramId.decorator';
 
 @Controller('users')
 export class UserController {
@@ -22,7 +23,7 @@ export class UserController {
   }
 
   @Get(':id')
-  show(@Param('id', ParseIntPipe) id: number) {
+  show(@ParamId() id: number) {
     return this.userService.show(id);
   }
 
