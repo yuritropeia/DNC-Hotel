@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Role, User } from '@prisma/client';
@@ -9,18 +11,17 @@ import * as bcrypt from 'bcrypt';
 import { UserService } from '../users/user.services';
 import { CreateUserDTO } from '../users/domain/dto/createUser.dto';
 import { AuthRegisterDTO } from './domain/dto/authRegister.dto';
-/*import { AuthResetPasswordDTO } from './domain/dto/authResetPassword.dto';
 import { ValidateTokenDTO } from './domain/dto/validateToken.dto';
+import { AuthResetPasswordDTO } from './domain/dto/authResetPassword.dto';
 import { MailerService } from '@nestjs-modules/mailer';
 import { templateHTML } from './utils/templateHTML';
-import { access } from 'fs';*/
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
     private readonly userService: UserService,
-    /*private readonly mailerService: MailerService,*/
+    private readonly mailerService: MailerService,
   ) {}
 
   async generateJwtToken(user: User, expiresIn: string = '1d') {
@@ -57,7 +58,7 @@ export class AuthService {
     return await this.generateJwtToken(user);
   }
 
-  /* async reset({ token, password }: AuthResetPasswordDTO) {
+  async reset({ token, password }: AuthResetPasswordDTO) {
     const { valid, decoded } = await this.validateToken(token);
 
     if (!valid || !decoded) throw new UnauthorizedException('Invalid token');
@@ -98,5 +99,5 @@ export class AuthService {
     } catch (error) {
       return { valid: false, message: error.message };
     }
-  }*/
+  }
 }

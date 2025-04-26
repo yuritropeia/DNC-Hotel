@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export interface JwtPayload {

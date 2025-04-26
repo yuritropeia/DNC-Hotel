@@ -27,7 +27,7 @@ export class AuthController {
     return this.authService.register(body);
   }
 
-  /*@Patch('reset-password')
+  @Patch('reset-password')
   async resetPassword(@Body() { token, password }: AuthResetPasswordDTO) {
     return this.authService.reset({ token, password });
   }
@@ -35,5 +35,5 @@ export class AuthController {
   @Post('forgot-password')
   forgotPassword(@Body() { email }: AuthForgotPasswordDTO) {
     return this.authService.forgot(email);
-  }*/
+  }
 }
