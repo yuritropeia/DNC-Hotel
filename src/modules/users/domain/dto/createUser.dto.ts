@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Role } from '@prisma/client';
 import {
   IsEmail,
