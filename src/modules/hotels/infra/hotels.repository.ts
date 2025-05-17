@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Hotel } from '@prisma/client';
 import { CreateHotelDto } from '../domain/dto/create-hotel.dto';
 import { IHotelRepository } from '../domain/repositories/Ihotel.repositories';

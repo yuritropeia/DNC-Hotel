@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Inject, Injectable } from '@nestjs/common';
 import { UpdateHotelDto } from '../domain/dto/update-hotel.dto';
 import { REPOSITORY_TOKEN_HOTEL } from '../utils/repositoriesTokens';

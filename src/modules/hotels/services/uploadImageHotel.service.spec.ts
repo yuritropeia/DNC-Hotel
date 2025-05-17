@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { Test, TestingModule } from '@nestjs/testing';
 import { IHotelRepository } from '../domain/repositories/Ihotel.repositories';
 import { UploadImageHotelService } from './uploadImageHotel.service';

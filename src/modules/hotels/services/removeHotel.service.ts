@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Inject, Injectable } from '@nestjs/common';
 import { REPOSITORY_TOKEN_HOTEL } from '../utils/repositoriesTokens';
 import { IHotelRepository } from '../domain/repositories/Ihotel.repositories';

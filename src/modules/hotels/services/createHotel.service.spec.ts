@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/unbound-method */
 import { Test, TestingModule } from '@nestjs/testing';
 import { REPOSITORY_TOKEN_HOTEL } from '../utils/repositoriesTokens';
 import { CreateHotelsService } from './createHotel.service';
