@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Inject, Injectable } from '@nestjs/common';
 import { REPOSITORY_TOKEN_RESERVATION } from '../utils/repositoriesTokens';
 import { IReservationRepository } from '../domain/repositories/Ireservations.repository';

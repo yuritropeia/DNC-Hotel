@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Module } from '@nestjs/common';
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { UserModule } from './modules/users/user.module';
@@ -5,6 +7,10 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HotelsModule } from './modules/hotels/hotels.module';
+import { ReservationsModule } from './modules/reservations/reservations.module';
+import { RedisModule } from '@nestjs-modules/ioredis';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -24,6 +30,21 @@ import { HotelsModule } from './modules/hotels/hotels.module';
       },
     }),
     HotelsModule,
+    ReservationsModule,
+    RedisModule.forRoot({
+      type: 'single',
+      url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+    }),
+    ServeStaticModule.forRoot(
+      {
+        rootPath: join(__dirname, '..', 'uploads'),
+        serveRoot: '/user-avatar',
+      },
+      {
+        rootPath: join(__dirname, '..', 'uploads-hotel'),
+        serveRoot: '/hotel-image',
+      },
+    ),
   ],
   providers: [
     {

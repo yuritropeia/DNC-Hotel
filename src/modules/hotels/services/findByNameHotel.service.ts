@@ -12,12 +12,13 @@ export class FindByNameHotelsService {
   ) {}
   async execute(name: string) {
     const hotels = await this.hotelRepositories.findHotelByName(name);
-    const newHotels = hotels.map((hotel) => {
-      if (hotel.image) {
-        hotel.image = `${process.env.APP_API_URL}/hotel-image/${hotel.image}`;
-      }
-      return hotel;
-    });
+    const newHotels =
+      hotels?.map((hotel) => {
+        if (hotel.image) {
+          hotel.image = `${process.env.APP_API_URL}/hotel-image/${hotel.image}`;
+        }
+        return hotel;
+      }) || [];
 
     return newHotels;
   }
